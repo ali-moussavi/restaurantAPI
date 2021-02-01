@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/restaurants", (req, res) => {
-	db.getAllRestaurants(req.page, req.perPage, borough)
+	db.getAllRestaurants(req.query.page, req.query.perPage, req.query.borough)
 		.then((data) => {
 			res.json(data);
 		})
@@ -63,7 +63,7 @@ app.post("/api/restaurants", (req, res) => {
 });
 
 app.put("/api/restaurants/:id", (req, res) => {
-	db.updateRestaurantById(req.body)
+	db.updateRestaurantById(req.body, req.params.id)
 		.then(() => {
 			res.json({ message: "success" });
 		})
