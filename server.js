@@ -41,7 +41,7 @@ app.get("/api/restaurants", (req, res) => {
 		});
 });
 
-app.get("/api/restaurants/:id", (req, res) => {
+app.get("/api/restaurant/:id", (req, res) => {
 	db.getRestaurantById(req.params.id)
 		.then((data) => {
 			res.json(data);
